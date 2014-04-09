@@ -3,10 +3,13 @@ require "topical/tokenizer"
 require "topical/processor"
 require "topical/registrar"
 require "topical/stopwords"
+require "topical/filter"
 
-require "topical/processor/strip_html_tags"
-require "topical/processor/strip_html_entities"
-require "topical/processor/trim"
+require "topical/processor/text/strip_html_tags"
+require "topical/processor/text/strip_html_entities"
+require "topical/processor/text/trim"
+
+require "topical/splitter/word"
 
 module Topical
   class TextNotText < ArgumentError; end
@@ -25,6 +28,8 @@ module Topical
   end
 end
 
-Topical.register(:strip_html_entities, Topical::Processor::StripHtmlEntities)
-Topical.register(:strip_html_tags, Topical::Processor::StripHtmlTags)
-Topical.register(:trim, Topical::Processor::Trim)
+Topical.register(:strip_html_entities,  Topical::Processor::Text::StripHtmlEntities)
+Topical.register(:strip_html_tags,      Topical::Processor::Text::StripHtmlTags)
+Topical.register(:trim,                 Topical::Processor::Text::Trim)
+
+Topical.register(:word_splitter,        Topical::Splitter::Word)

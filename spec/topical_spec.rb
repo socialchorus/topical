@@ -10,15 +10,15 @@ describe Topical do
 
   describe '#register' do
     it "adds to the stored registrar" do
-      Topical.register(:foo, Topical::Processor::Trim)
-      Topical.registrar.get(:foo).must_equal Topical::Processor::Trim
+      Topical.register(:foo, Topical::Processor::Text::Trim)
+      Topical.registrar.get(:foo).must_equal Topical::Processor::Text::Trim
     end
   end
 
   describe '#processor' do
     it "gets from the stored registrar" do
-      Topical.registrar.add(:foo, Topical::Processor::Trim)
-      Topical.processor(:foo).must_equal Topical::Processor::Trim
+      Topical.registrar.add(:foo, Topical::Processor::Text::Trim)
+      Topical.processor(:foo).must_equal Topical::Processor::Text::Trim
     end
   end
 end

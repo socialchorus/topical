@@ -24,7 +24,7 @@ module Topical
     end
 
     def split
-      @words = text.split(/[^\w+'-?]/)
+      @words = Topical.processor(:word_splitter).new.process(text)
     end
   end
 end

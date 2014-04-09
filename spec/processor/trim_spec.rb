@@ -2,8 +2,8 @@ require 'minitest/spec'
 require 'minitest/autorun'
 require 'minitest/pride'
 
-describe Topical::Processor::StripHtmlTags do
-  let(:processor) { Topical::Processor::Trim.new }
+describe Topical::Processor::Text::StripHtmlTags do
+  let(:processor) { Topical::Processor::Text::Trim.new }
 
   let(:text) { '   go team, or whatever!    ' }
 

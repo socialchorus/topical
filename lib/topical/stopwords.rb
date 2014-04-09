@@ -7,14 +7,17 @@ module Topical
     end
 
     def load(path)
+      new_collection = words + split_words_on(path)
+      self.words = new_collection.map {|word| trim(word) }.uniq.sort
+    end
+
+    def split_words_on(path)
       path =  stopwords_path(path) if path.is_a?(Symbol)
-      split = File.read(path).split(/,\s?/)
-      self.words += split
-      self.words = words.map {|word| trim(word) }.uniq
+      File.read(path).split(/,\s?/)
     end
 
     def trim(word)
-      Processor::Trim.new(word).process
+      Topical.processor(:trim).new(word).process
     end
 
     def stopwords_path(key)

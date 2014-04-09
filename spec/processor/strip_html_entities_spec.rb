@@ -2,8 +2,8 @@ require 'minitest/spec'
 require 'minitest/autorun'
 require 'minitest/pride'
 
-describe Topical::Processor::StripHtmlEntities do
-  let(:processor) { Topical::Processor::StripHtmlEntities.new }
+describe Topical::Processor::Text::StripHtmlEntities do
+  let(:processor) { Topical::Processor::Text::StripHtmlEntities.new }
 
   let(:text) { 'a&#768; pleasant hello' }
 
