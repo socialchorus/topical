@@ -6,7 +6,7 @@ describe Topical::Processor do
   let(:processor_class) {
     class LeeterLite < Topical::Processor
       def transform
-        text.gsub(/[aeio]/, leet_vowel($1))
+        input.gsub(/[aeio]/, leet_vowel($1))
       end
 
       def leet_vowel(vowel)
@@ -23,39 +23,29 @@ describe Topical::Processor do
   }
 
   describe 'when initialized' do
-    let(:processor) { processor_class.new(text) }
+    let(:processor) { processor_class.new(input) }
 
-    describe 'with text' do
-      let(:text) { 'Hello World' }
+    describe 'with input' do
+      let(:input) { 'Hello World' }
 
       it "will transform" do
         processor.process.must_equal 'H3ll0 W0rld'
       end
     end
-
-    describe 'when text is not text' do
-      let(:text) { nil }
-
-      it "raise an error about the text needing to be text" do
-        proc {
-          processor.process
-        }.must_raise Topical::TextNotText
-      end
-    end
   end
 
-  describe 'when not initialized with text' do
+  describe 'when not initialized with input' do
     let(:processor) { processor_class.new }
 
-    let(:text) { 'Hello World' }
+    let(:input) { 'Hello World' }
 
-    it "will transform as long as text is set before processing" do
-      processor.text = text
+    it "will transform as long as input is set before processing" do
+      processor.input = input
       processor.process.must_equal 'H3ll0 W0rld'
     end
 
     it "#process takes an argument and will work with it" do
-      processor.process(text).must_equal 'H3ll0 W0rld'
+      processor.process(input).must_equal 'H3ll0 W0rld'
     end
   end
 end

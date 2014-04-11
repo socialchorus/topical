@@ -1,11 +1,12 @@
 module Topical
   class Processor
     class Text
-      class Trim < Text
+      class Downcase < Text
         def transform
-          input.gsub(/^\s+|\s+$/, '')
+          input.downcase
         end
       end
     end
   end
 end
+

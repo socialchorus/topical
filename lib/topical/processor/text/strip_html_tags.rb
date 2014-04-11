@@ -1,13 +1,9 @@
 module Topical
   class Processor
-    module Text
-      class StripHtmlTags < Processor
-        def type
-          :text
-        end
-
+    class Text
+      class StripHtmlTags < Text
         def transform
-          text.gsub(/<[^>]*>/, "")
+          input.gsub(/<[^>]*>/, "")
         end
       end
     end

@@ -7,7 +7,7 @@ module Topical
     end
 
     def get(key)
-      raise ProcessorNotRegistered unless cache[key]
+      raise ProcessorNotRegistered.new("#{key} not registered") unless cache[key]
       cache[key]
     end
 

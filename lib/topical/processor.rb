@@ -1,14 +1,13 @@
 module Topical
   class Processor
-    attr_accessor :text
+    attr_accessor :input
 
-    def initialize(text=nil)
-      @text = text
+    def initialize(input=nil)
+      @input = input
     end
 
-    def process(new_text=nil)
-      self.text = new_text if new_text
-      raise Topical::TextNotText unless text.is_a?(String)
+    def process(new_input=nil)
+      self.input = new_input if new_input
       transform
     end
 
