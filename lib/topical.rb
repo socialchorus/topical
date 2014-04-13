@@ -14,6 +14,8 @@ require "topical/splitter/word"
 
 require "topical/processor/array/remove_stopwords"
 require "topical/processor/array/remove_capitalized"
+require "topical/processor/array/remove_lowercase"
+require "topical/processor/array/remove_starts_with_number"
 
 
 module Topical
@@ -48,5 +50,8 @@ Topical.register(:downcase,             Topical::Processor::Text::Downcase)
 
 Topical.register(:remove_stopwords,     Topical::Processor::Array::RemoveStopwords)
 Topical.register(:remove_capitalized,   Topical::Processor::Array::RemoveCapitalized)
+Topical.register(:remove_lowercase,     Topical::Processor::Array::RemoveLowercase)
+Topical.register(:remove_starts_with_number,
+                                        Topical::Processor::Array::RemoveStartsWithNumber)
 
-Topical.register(:word_splitter,        Topical::Splitter::Word)
+Topical.register(:split_words,          Topical::Splitter::Word)

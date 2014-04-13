@@ -8,7 +8,7 @@ describe Topical::Engine do
   let(:instructions) {
     [
       :strip_html_tags,
-      :word_splitter,
+      :split_words,
       :downcase,
       :remove_stopwords
     ]
