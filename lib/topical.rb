@@ -11,6 +11,7 @@ require "topical/processor/text/trim"
 require "topical/processor/text/downcase"
 
 require "topical/splitter/word"
+require "topical/splitter/extract_hashtags"
 
 require "topical/processor/array/remove_stopwords"
 require "topical/processor/array/remove_capitalized"
@@ -55,3 +56,4 @@ Topical.register(:remove_starts_with_number,
                                         Topical::Processor::Array::RemoveStartsWithNumber)
 
 Topical.register(:split_words,          Topical::Splitter::Word)
+Topical.register(:extract_hashtags,     Topical::Splitter::ExtractHashtags)
