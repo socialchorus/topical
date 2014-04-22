@@ -1,13 +1,16 @@
 module Topical
   class Engine
-    attr_reader :instructions, :input
+    attr_accessor :input
+    attr_reader :instructions
 
-    def initialize(input, instructions)
+    def initialize(instructions, input=nil)
       @instructions = instructions
       @input = input
     end
 
-    def run
+    def run(i=nil)
+      self.input = i if i
+
       instructions.inject(input) do |feed, key|
         tranformed = Topical.process(key, feed)
         log(key, tranformed) if Topical.debug

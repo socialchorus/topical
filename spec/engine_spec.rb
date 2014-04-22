@@ -3,7 +3,7 @@ require 'minitest/autorun'
 require 'minitest/pride'
 
 describe Topical::Engine do
-  let(:engine) { Topical::Engine.new(input, instructions) }
+  let(:engine) { Topical::Engine.new(instructions, input) }
   let(:input) { 'The <a href="/foo">  quick</a> brown fox jumped' }
   let(:instructions) {
     [
