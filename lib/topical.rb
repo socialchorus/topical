@@ -57,6 +57,7 @@ Topical.register(:remove_lowercase,     Topical::Processor::Array::RemoveLowerca
 Topical.register(:remove_starts_with_number,
                                         Topical::Processor::Array::RemoveStartsWithNumber)
 Topical.register(:remove_numbers,       Topical::Processor::Array::RemoveNumbers)
+Topical.register(:join_phrases,         Topical::Processor::Array::JoinPhrases)
 
 Topical.register(:split_words,          Topical::Splitter::Word)
 Topical.register(:extract_hashtags,     Topical::Splitter::ExtractHashtags)
