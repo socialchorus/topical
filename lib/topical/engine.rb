@@ -18,6 +18,18 @@ module Topical
       end
     end
 
+    def -(other)
+      run - operand(other)
+    end
+
+    def +(other)
+      run + operand(other)
+    end
+
+    def operand(other)
+      other.is_a?(Engine) ? other.run : other
+    end
+
     def log(key, transformed)
       puts ":#{key} - #{transformed.inspect}"
     end
