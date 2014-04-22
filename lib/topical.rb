@@ -17,6 +17,8 @@ require "topical/processor/array/remove_stopwords"
 require "topical/processor/array/remove_capitalized"
 require "topical/processor/array/remove_lowercase"
 require "topical/processor/array/remove_starts_with_number"
+require "topical/processor/array/remove_numbers"
+require "topical/processor/array/join_phrases"
 
 
 module Topical
